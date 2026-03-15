@@ -1,11 +1,13 @@
 import { LOCALE } from '@config/locale.ts';
-import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { object } from 'astro/zod';
+import { defineCollection } from 'astro:content';
 import { mapEntries } from 'radashi';
 
 /**
  * Shared Zod schema for page frontmatter across all locales.
  */
-const pageSchema = z.object({});
+const schema = object({});
 
 /**
  * Content collections for each supported locale.
@@ -15,5 +17,8 @@ const pageSchema = z.object({});
  */
 export const collections = mapEntries(LOCALE.map, (key) => [
 	key,
-	defineCollection({ schema: pageSchema }),
+	defineCollection({
+		loader: glob({ base: `./src/content/${key}`, pattern: '*.mdoc' }),
+		schema,
+	}),
 ]);
