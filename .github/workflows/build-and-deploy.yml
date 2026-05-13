@@ -23,7 +23,7 @@ jobs:
         run: echo 0 | sudo tee /proc/sys/kernel/apparmor_restrict_unprivileged_userns
 
       - name: 🚀 Install, build, and upload artifact
-        uses: withastro/action@v4
+        uses: withastro/action@v6
         with:
           node-version: 24
   deploy:
