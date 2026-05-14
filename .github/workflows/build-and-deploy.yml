@@ -25,7 +25,7 @@ jobs:
       - name: 🚀 Install, build, and upload artifact
         uses: withastro/action@v6
         with:
-          node-version: 24
+          node-version: lts/*
   deploy:
     if: github.event_name == 'push'
     needs: build
