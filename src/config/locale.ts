@@ -10,6 +10,7 @@ export type LocaleId =
 	| 'id'
 	| 'it'
 	| 'ru'
+	| 'vi'
 	| 'zh';
 
 /**
@@ -81,6 +82,10 @@ const localeMap: LocaleMap = {
 	},
 	ru: {
 		wip: false,
+		rtl: false,
+	},
+	vi: {
+		wip: true,
 		rtl: false,
 	},
 	zh: {
