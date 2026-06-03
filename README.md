@@ -7,9 +7,9 @@
 	</h1>
 	<p class="projectBadges info">
 		<img src="https://johng.io/badges/category/App.svg" alt="Project category" title="Project category">
-		<img src="https://img.shields.io/github/languages/top/twocaretcat/Tally.svg" alt="Language" title="Language">
-		<img src="https://img.shields.io/github/repo-size/twocaretcat/Tally.svg" alt="Repository size" title="Repository size">
-		<a href="LICENSE"><img src="https://img.shields.io/github/license/twocaretcat/Tally.svg" alt="Project license" title="Project license"/></a>
+		<img src="https://img.shields.io/github/languages/top/caret-collective/Tally.svg" alt="Language" title="Language">
+		<img src="https://img.shields.io/github/repo-size/caret-collective/Tally.svg" alt="Repository size" title="Repository size">
+		<a href="LICENSE"><img src="https://img.shields.io/github/license/caret-collective/Tally.svg" alt="Project license" title="Project license"/></a>
 	</p>
 	<p class="projectBadges status">
 		<a href="https://tally.johng.io" title="Project URL"><img src="https://img.shields.io/website?url=https%3A%2F%2Ftally.johng.io&up_message=tally.johng.io%20%E2%86%97" alt="Project URL" title="Project URL"></a>
@@ -80,7 +80,7 @@ Counting functionality is provided by [tally-ts], an in-house library for comput
 2. **Clone the repository**
 
    ```sh
-   git clone https://github.com/twocaretcat/Tally.git
+   git clone https://github.com/caret-collective/Tally.git
    cd Tally
    ```
 
@@ -148,7 +148,7 @@ You can find various options in the page footer that allow you to customize the 
 #### Language
 
 > [!NOTE]
-> Some languages are marked as _**experimental**_. This means that the translations haven't been reviewed and/or counting accuracy has not been extensively tested for that language. If you encounter any issues with a language, please [open an issue](https://github.com/twocaretcat/Tally/issues).
+> Some languages are marked as _**experimental**_. This means that the translations haven't been reviewed and/or counting accuracy has not been extensively tested for that language. If you encounter any issues with a language, please [open an issue](https://github.com/caret-collective/Tally/issues).
 
 You can change the language with the language selector. Choosing a language changes the UI text to that language and adjusts the segmentation rules that determine how graphemes, words, and sentences are counted.
 
@@ -259,7 +259,7 @@ You can also set any of the supported options by passing query params. You can f
 
 ## 🛟 Support
 
-Need help? See the [support resources](https://github.com/twocaretcat/.github/blob/main/docs/SUPPORT.md) for information on how to:
+Need help? See the [support resources](https://github.com/caret-collective/.github/blob/main/docs/SUPPORT.md) for information on how to:
 
 - request features
 - report bugs
@@ -290,16 +290,16 @@ This project is licensed under the AGPL-3.0 License. See the [license](LICENSE) 
 
 Other projects you might like:
 
-- **👤 [Tally Chrome Extension](https://github.com/twocaretcat/Tally-Extension)**: A Chrome extension to easily count the number of words, characters, and paragraphs on any site
+- **👤 [Tally Chrome Extension](https://github.com/caret-collective/Tally-Extension)**: A Chrome extension to easily count the number of words, characters, and paragraphs on any site
 - **👤 [Mergist](https://mergist.johng.io)**: An online tool to combine multiple PDF files into one. Mergist has no ads, no file size limits, and your files never leave your device
-- **👤 [Shared File Finder for Google Drive](https://github.com/twocaretcat/Shared-File-Finder-for-Google-Drive)**: An Apps Script that finds all files/folders on Google Drive that are shared with others and adds them to a Google Sheet
+- **👤 [Shared File Finder for Google Drive](https://github.com/caret-collective/Shared-File-Finder-for-Google-Drive)**: An Apps Script that finds all files/folders on Google Drive that are shared with others and adds them to a Google Sheet
 
 ### Depends On
 
 Projects used by this one:
 
-- **👤 [tally-ts](https://github.com/twocaretcat/tally-ts)**: A TypeScript word counting library. Used by **Tally** to compute counts
-- **👤 [astro-snapshot](https://github.com/twocaretcat/astro-snapshot)**: An Astro integration for generating screenshots of your pages automatically at build time. Used by **Tally** to generate social preview images
+- **👤 [tally-ts](https://github.com/caret-collective/tally-ts)**: A TypeScript word counting library. Used by **Tally** to compute counts
+- **👤 [astro-snapshot](https://github.com/caret-collective/astro-snapshot)**: An Astro integration for generating screenshots of your pages automatically at build time. Used by **Tally** to generate social preview images
 - **🌐 [harper.js](https://writewithharper.com)**: An open-source grammar and style checking engine. Used by **Tally** to provide grammar suggestions
 
 ## 💕 Funding
@@ -317,4 +317,4 @@ If you can't donate but still want to contribute, don't worry. There are many ot
 I appreciate the support!
 
 [tally.johng.io]: https://tally.johng.io
-[tally-ts]: https://github.com/twocaretcat/tally-ts
+[tally-ts]: https://github.com/caret-collective/tally-ts

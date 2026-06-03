@@ -50,10 +50,10 @@ export const URL = {
 		homepage: 'https://mergist.johng.io',
 	},
 	tallyTs: {
-		homepage: 'https://github.com/twocaretcat/tally-ts',
+		homepage: 'https://github.com/caret-collective/tally-ts',
 	},
 	tallyExtension: {
-		homepage: 'https://github.com/twocaretcat/Tally-Extension',
+		homepage: 'https://github.com/caret-collective/Tally-Extension',
 		chromeWebStore:
 			'https://chromewebstore.google.com/detail/tally-word-counter/eggkmbghbmjmbdjloifaklghfiecjbnk',
 	},
