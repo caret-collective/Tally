@@ -41,7 +41,8 @@ type SiteConfig = {
 const AUTHOR_FIRST_NAME = 'John' as const;
 const AUTHOR_LAST_NAME = 'Goodliff' as const;
 const AUTHOR_HOMEPAGE_URL = 'https://johng.io' as const satisfies HttpsUrl;
-const REPO_URL = `https://github.com/caret-collective/Tally` as const satisfies HttpsUrl;
+const REPO_URL =
+	`https://github.com/caret-collective/Tally` as const satisfies HttpsUrl;
 
 /**
  * Global site configuration.
