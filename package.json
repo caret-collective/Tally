@@ -69,7 +69,7 @@
 	"dependencies": {
 		"@astrojs/markdoc": "1.0.6",
 		"@astrojs/sitemap": "3.7.3",
-		"@lucide/astro": "0.577.0",
+		"@lucide/astro": "1.34.0",
 		"@nanostores/logger": "^1.0.0",
 		"@nanostores/persistent": "^1.3.0",
 		"@twocaretcat/astro-snapshot": "npm:@jsr/twocaretcat__astro-snapshot@^2.3.0",
