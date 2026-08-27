@@ -1,7 +1,5 @@
 import markdoc from '@astrojs/markdoc';
 import sitemap from '@astrojs/sitemap';
-import playformCompress from '@playform/compress';
-import betterImageService from 'astro-better-image-service';
 import robotsTxt from 'astro-robots-txt';
 import { defineConfig, fontProviders } from 'astro/config';
 import {
@@ -45,22 +43,6 @@ export default defineConfig({
 		})),
 	},
 	integrations: [
-		betterImageService({
-			sharp: {
-				webp: {
-					effort: 6,
-					// Webp has some pretty awful banding on gradients in social preview images regardless of the quality setting, so we use near-lossless mode to prevent this
-					nearLossless: true,
-				},
-				avif: {
-					quality: 60,
-					effort: 9,
-				},
-				png: {
-					compressionLevel: 9,
-				},
-			},
-		}),
 		// TODO: Create a custom Sup component so we don't need to allow HTML
 		markdoc({ allowHTML: true }),
 		robotsTxt({
@@ -92,22 +74,6 @@ export default defineConfig({
 			},
 		}),
 		snapshot(ASTRO_SNAPSHOT_CONFIG),
-		// Workaround for https://github.com/withastro/prettier-plugin-astro/issues/308
-		playformCompress({
-			HTML: {
-				'html-minifier-terser': {
-					minifyCSS: false,
-				},
-			},
-			CSS: {
-				csso: false,
-				lightningcss: {
-					minify: true,
-				},
-			},
-			Image: false,
-			SVG: false,
-		}),
 	],
 	vite: {
 		optimizeDeps: {
