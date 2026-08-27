@@ -12,7 +12,8 @@ import Markdoc, {
 } from '@markdoc/markdoc';
 import { SITE } from '@config/site.ts';
 import { URL } from '@config/url.ts';
-import { assert, get, isString } from 'radashi';
+import { get, isString } from 'radashi';
+import assert from 'node:assert';
 
 /**
  * Resolves a variable reference or returns the input string as-is.
