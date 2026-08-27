@@ -7,7 +7,7 @@ import { SITE } from '@config/site.ts';
 import { getLocale } from '@i18n/index.ts';
 import PageLayout from '@layouts/PageLayout.astro';
 import { getEntry } from 'astro:content';
-import { assert } from 'radashi';
+import assert from 'node:assert';
 
 // Hardcoded because these strings don't need to be translated (this page is outside of the localized routes)
 const msg = {
