@@ -1,7 +1,7 @@
 import markdoc from '@astrojs/markdoc';
 import sitemap from '@astrojs/sitemap';
 import robotsTxt from 'astro-robots-txt';
-import { defineConfig, fontProviders } from 'astro/config';
+import { defineConfig, fontProviders, svgoOptimizer } from 'astro/config';
 import {
 	ASTRO_SNAPSHOT_CONFIG,
 	I18N_CONFIG,
@@ -36,7 +36,7 @@ export default defineConfig({
 	},
 	i18n: I18N_CONFIG.astro,
 	experimental: {
-		svgo: true,	
+		svgOptimizer: svgoOptimizer(),	
 	},
 	fonts: FONTS.map((props) => ({
 		...props,
