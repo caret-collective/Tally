@@ -44,7 +44,7 @@ async function getEntryIf<TId extends string>(
 		return false;
 	}
 
-	const entry = await getEntry(currentLocaleId, id);
+	const entry = await getEntry('content', `${currentLocaleId}/${id}`);
 
 	assert(entry, error);
 
@@ -58,11 +58,11 @@ const inputPreloadVars = {
 	d: INPUT.defaultValue,
 } as const;
 
-const aboutEntry = await getEntry(currentLocaleId, 'about');
-const relatedEntry = await getEntry(currentLocaleId, 'related');
+const aboutEntry = await getEntry('content', `${currentLocaleId}/about`);
+const relatedEntry = await getEntry('content', `${currentLocaleId}/related`);
 const jsRequiredAlertEntry = await getEntry(
-	currentLocaleId,
-	'js-required-alert',
+	'content',
+	`${currentLocaleId}/js-required-alert`,
 );
 const experimentalLocaleAlertEntry = await getEntryIf(
 	'experimental-locale-alert',
