@@ -43,6 +43,10 @@ export default defineConfig({
 	})),
 	experimental: {
 		svgOptimizer: svgoOptimizer(),
+		rustCompiler: true,
+		queuedRendering: {
+			enabled: true,
+		},
 	},
 	integrations: [
 		betterImageService({
