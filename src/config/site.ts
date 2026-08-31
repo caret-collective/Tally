@@ -40,9 +40,9 @@ type SiteConfig = {
 
 const AUTHOR_FIRST_NAME = 'John' as const;
 const AUTHOR_LAST_NAME = 'Goodliff' as const;
-const AUTHOR_HOMEPAGE_URL: HttpsUrl = 'https://johng.io' as const;
-const AUTHOR_GITHUB_URL: HttpsUrl = 'https://github.com/twocaretcat' as const;
-const REPO_URL: HttpsUrl = `${AUTHOR_GITHUB_URL}/Tally`;
+const AUTHOR_HOMEPAGE_URL = 'https://johng.io' as const satisfies HttpsUrl;
+const REPO_URL =
+	`https://github.com/caret-collective/Tally` as const satisfies HttpsUrl;
 
 /**
  * Global site configuration.
@@ -70,7 +70,7 @@ export const SITE = {
 		},
 		url: {
 			homepage: AUTHOR_HOMEPAGE_URL,
-			github: AUTHOR_GITHUB_URL,
+			github: 'https://github.com/twocaretcat',
 			linkedin: 'https://www.linkedin.com/in/johngoodliff/',
 		},
 		username: {

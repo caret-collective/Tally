@@ -14,7 +14,7 @@
 		"online tool"
 	],
 	"homepage": "https://johng.io/p/tally",
-	"bugs": "https://github.com/twocaretcat/Tally/issues",
+	"bugs": "https://github.com/caret-collective/Tally/issues",
 	"license": "AGPL-3.0-only",
 	"author": {
 		"name": "John Goodliff",
@@ -42,7 +42,7 @@
 	"type": "module",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/twocaretcat/Tally.git"
+		"url": "git+https://github.com/caret-collective/Tally.git"
 	},
 	"scripts": {
 		"dev": "astro dev",
