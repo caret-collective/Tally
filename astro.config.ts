@@ -1,9 +1,13 @@
 import markdoc from '@astrojs/markdoc';
 import sitemap from '@astrojs/sitemap';
 import playformCompress from '@playform/compress';
-import betterImageService from 'astro-better-image-service';
 import robotsTxt from 'astro-robots-txt';
-import { defineConfig, fontProviders, svgoOptimizer } from 'astro/config';
+import {
+	defineConfig,
+	fontProviders,
+	sharpImageService,
+	svgoOptimizer,
+} from 'astro/config';
 import {
 	ASTRO_SNAPSHOT_CONFIG,
 	I18N_CONFIG,
@@ -35,6 +39,22 @@ export default defineConfig({
 		remotePatterns: [{ protocol: 'https' }],
 		responsiveStyles: true,
 		layout: 'constrained',
+		// Required for rasterizing trusted local SVG icons into PNG assets.
+		dangerouslyProcessSVG: true,
+		service: sharpImageService({
+			webp: {
+				effort: 6,
+				// Webp has some pretty awful banding on gradients in social preview images regardless of the quality setting, so we use near-lossless mode to prevent this
+				nearLossless: true,
+			},
+			avif: {
+				quality: 60,
+				effort: 9,
+			},
+			png: {
+				compressionLevel: 9,
+			},
+		}),
 	},
 	i18n: I18N_CONFIG.astro,
 	fonts: FONTS.map((props) => ({
@@ -49,22 +69,6 @@ export default defineConfig({
 		},
 	},
 	integrations: [
-		betterImageService({
-			sharp: {
-				webp: {
-					effort: 6,
-					// Webp has some pretty awful banding on gradients in social preview images regardless of the quality setting, so we use near-lossless mode to prevent this
-					nearLossless: true,
-				},
-				avif: {
-					quality: 60,
-					effort: 9,
-				},
-				png: {
-					compressionLevel: 9,
-				},
-			},
-		}),
 		// TODO: Create a custom Sup component so we don't need to allow HTML
 		markdoc({ allowHTML: true }),
 		robotsTxt({
