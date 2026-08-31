@@ -2,12 +2,10 @@ import {
 	defineMarkdocConfig,
 	nodes,
 	component,
-	type Render,
 } from '@astrojs/markdoc/config';
 import Markdoc, {
 	type Config,
 	type Node,
-	type Tag,
 	type ValidationError,
 } from '@markdoc/markdoc';
 import { SITE } from '@config/site.ts';
@@ -87,36 +85,35 @@ function validateTextNode(node: Node): ValidationError[] {
 }
 
 /**
- * Transforms link nodes to resolve variable references in href attributes.
+ * Markdoc attribute type that resolves string variables in URL-like props.
  *
- * Enables using variable references like `$url.github` in link hrefs, which will
- * be resolved to actual URLs from the config variables at build time.
- *
- * @param node - The link node to transform
- * @param config - The Markdoc config containing variables to resolve against
- * @returns A new Markdoc Tag with the resolved href
- *
- * @example
- * // In Markdoc: [GitHub]($url.github)
- * // With config.variables = { url: { github: 'https://github.com/...' } }
- * // Transforms to: <a href="https://github.com/...">GitHub</a>
+ * Markdown link URLs parse as plain strings, while tag attributes can parse as
+ * Markdoc variables. Accept both during validation, then resolve `$...` strings
+ * against the Markdoc config variables during transform.
  */
-function transformLinkNode(
-	node: Node,
-	config: Config,
-	render: Render | undefined,
-): Tag {
-	const href = resolveVariable(config.variables, node.attributes.href);
+class VariableString {
+	validate(value: unknown): ValidationError[] {
+		if (isString(value) || Markdoc.Ast.isVariable(value)) {
+			return [];
+		}
 
-	return new Markdoc.Tag(
-		render,
-		{
-			...node.attributes,
-			href,
-		},
-		node.transformChildren(config),
-	);
+		return [
+			{
+				id: 'attribute-type-invalid',
+				level: 'error',
+				message: 'Attribute must be a string or variable.',
+			},
+		];
+	}
+
+	transform(value: string, config: Config) {
+		return resolveVariable(config.variables, value);
+	}
 }
+
+const documentNode = { ...nodes.document };
+
+delete documentNode.render;
 
 export default defineMarkdocConfig({
 	variables: {
@@ -124,10 +121,7 @@ export default defineMarkdocConfig({
 		url: URL,
 	},
 	nodes: {
-		document: {
-			...nodes.document,
-			render: undefined,
-		},
+		document: documentNode,
 		text: {
 			...nodes.text,
 			validate: validateTextNode,
@@ -135,8 +129,12 @@ export default defineMarkdocConfig({
 		link: {
 			...nodes.link,
 			render: component('@components/ui/Link.astro'),
-			transform(node, config) {
-				return transformLinkNode(node, config, this.render);
+			attributes: {
+				...nodes.link.attributes,
+				href: {
+					...nodes.link.attributes?.href,
+					type: VariableString,
+				},
 			},
 		},
 		strong: {
@@ -166,7 +164,8 @@ export default defineMarkdocConfig({
 			render: component('@components/app/LicenseButtonLink.astro'),
 			attributes: {
 				to: {
-					type: String,
+					type: VariableString,
+					required: true,
 				},
 				label: {
 					type: String,
