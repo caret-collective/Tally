@@ -76,7 +76,6 @@
 		"@twocaretcat/astro-snapshot": "npm:@jsr/twocaretcat__astro-snapshot@^2.4.0",
 		"@twocaretcat/tally-ts": "npm:@jsr/twocaretcat__tally-ts@^2.0.0",
 		"astro": "6.4.8",
-		"astro-better-image-service": "^2.2.0",
 		"astro-capo": "^0.0.1",
 		"astro-robots-txt": "^1.0.0",
 		"harper.js": "^1.12.0",
