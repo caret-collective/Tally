@@ -51,8 +51,7 @@
 		"serve": "astro preview",
 		"typecheck": "astro check",
 		"format:check": "prettier --check .",
-		"format:write": "prettier --write .",
-		"upgrade-interactive": "npm-check-updates -i --format group"
+		"format:write": "prettier --write ."
 	},
 	"trustedDependencies": [
 		"tally-ts",
@@ -62,7 +61,6 @@
 	"devDependencies": {
 		"@astrojs/check": "0.9.7",
 		"@types/bun": "latest",
-		"npm-check-updates": "^19.6.6",
 		"prettier": "^3.9.6",
 		"prettier-plugin-astro": "^0.14.1",
 		"prettier-plugin-astro-organize-imports": "^0.4.13",

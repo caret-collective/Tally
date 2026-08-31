@@ -25,7 +25,6 @@
       "devDependencies": {
         "@astrojs/check": "0.9.7",
         "@types/bun": "latest",
-        "npm-check-updates": "^19.6.6",
         "prettier": "^3.9.6",
         "prettier-plugin-astro": "^0.14.1",
         "prettier-plugin-astro-organize-imports": "^0.4.13",
@@ -834,8 +833,6 @@
     "node-mock-http": ["node-mock-http@1.0.5", "", {}, "sha512-KQyt/wLjG3TAc7DOUhpqWzgd4ERxR80JOlTK5VE5R1S12IaPVN5qkj4klBce9HPG1Njuup4Sb5bljaT34lIyjw=="],
 
     "normalize-path": ["normalize-path@3.0.0", "", {}, "sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA=="],
-
-    "npm-check-updates": ["npm-check-updates@19.6.6", "", { "bin": { "ncu": "build/cli.js", "npm-check-updates": "build/cli.js" } }, "sha512-AvlRcnlUEyBEJfblUSjYMJwYKvCIWDRuCDa6x3hyUMTMkI3kslmFm0LDqwgzQfshfNh0Z3ouKiA4fLjRN7HejQ=="],
 
     "nth-check": ["nth-check@2.1.1", "", { "dependencies": { "boolbase": "^1.0.0" } }, "sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w=="],
 
