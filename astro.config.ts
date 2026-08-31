@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 import playformCompress from '@playform/compress';
 import betterImageService from 'astro-better-image-service';
 import robotsTxt from 'astro-robots-txt';
-import { defineConfig, fontProviders } from 'astro/config';
+import { defineConfig, fontProviders, svgoOptimizer } from 'astro/config';
 import {
 	ASTRO_SNAPSHOT_CONFIG,
 	I18N_CONFIG,
@@ -37,12 +37,12 @@ export default defineConfig({
 		layout: 'constrained',
 	},
 	i18n: I18N_CONFIG.astro,
+	fonts: FONTS.map((props) => ({
+		...props,
+		provider: fontProviders.fontsource(),
+	})),
 	experimental: {
-		svgo: true,
-		fonts: FONTS.map((props) => ({
-			...props,
-			provider: fontProviders.fontsource(),
-		})),
+		svgOptimizer: svgoOptimizer(),
 	},
 	integrations: [
 		betterImageService({
