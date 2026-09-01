@@ -1,10 +1,8 @@
 ---
-import { INPUT } from '@config/input.ts';
 import type { OutputId } from '@config/output.ts';
 import { getLocale, getLocaleMessages } from '@i18n/index.ts';
 import type { WithChildren } from '@type/utils.ts';
-import { wKey } from '@utils/dom.ts';
-import type { HTMLAttributes } from 'astro/types';
+import Output from './Output.tsx';
 
 /**
  * Props for a standalone output element displaying a text statistic.
@@ -13,23 +11,19 @@ import type { HTMLAttributes } from 'astro/types';
  *
  * @property id - The output field ID (e.g., 'words', 'characters')
  */
-interface Props extends WithChildren<
-	false,
-	Omit<HTMLAttributes<'output'>, 'id'>
-> {
+interface Props extends WithChildren<false> {
 	id: OutputId;
 }
 
-const msg = getLocaleMessages(getLocale(Astro)).output.placeholder;
+const currentLocaleId = getLocale(Astro);
+const { placeholder } = getLocaleMessages(currentLocaleId).output;
 
-const { id, ...restProps } = Astro.props;
+const { id } = Astro.props;
 ---
 
-<output {...restProps} {...wKey(id, 'output')} {id} name={id} for={INPUT.id}>
-	{msg}
-</output>
+<Output client:load {id} {currentLocaleId} {placeholder} />
 
-<style>
+<style is:global>
 	@keyframes pulse {
 		0% {
 			transform: scale(1.1);
@@ -39,14 +33,14 @@ const { id, ...restProps } = Astro.props;
 		}
 	}
 
-	output {
+	output[for='input'] {
 		font-family: var(--f-header);
 		font-size: var(--f-lg);
 		font-weight: var(--f-bold);
 		contain: content;
 	}
 
-	.pulse {
+	output[for='input'].pulse {
 		animation: pulse var(--d-md) ease-out;
 	}
 </style>
