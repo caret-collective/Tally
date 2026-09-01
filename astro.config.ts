@@ -1,5 +1,6 @@
 import markdoc from '@astrojs/markdoc';
 import sitemap from '@astrojs/sitemap';
+import solidJs from '@astrojs/solid-js';
 import playformCompress from '@playform/compress';
 import robotsTxt from 'astro-robots-txt';
 import {
@@ -69,6 +70,7 @@ export default defineConfig({
 		},
 	},
 	integrations: [
+		solidJs(),
 		// TODO: Create a custom Sup component so we don't need to allow HTML
 		markdoc({ allowHTML: true }),
 		robotsTxt({
