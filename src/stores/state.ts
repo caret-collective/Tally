@@ -1,10 +1,10 @@
 import { INPUT } from '@config/input.ts';
-import { type OutputId } from '@config/output.ts';
 import { persistentAtom } from '@nanostores/persistent';
 import { atom, map } from 'nanostores';
 import type { LintChunkMap, RangeIndices } from '@type/linting.ts';
 import type { Lint } from 'harper.js';
 import { $option } from './options.ts';
+export { $outputCounts } from './output.ts';
 
 /**
  * The input text saved to localStorage.
@@ -37,13 +37,6 @@ export const $input = atom<{
 		};
 	})(),
 );
-
-/**
- * The computed word and character counts for the current input.
- *
- * Null when no counts have been computed or when computation is cancelled.
- */
-export const $outputCounts = atom<{ [key in OutputId]: number } | null>(null);
 
 /**
  * Computed lint chunks for the current input.

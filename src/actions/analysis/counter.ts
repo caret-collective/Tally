@@ -1,5 +1,5 @@
 import { getLocale } from '@i18n/index.ts';
-import { $outputCounts } from '@stores/state.ts';
+import { $outputCounts } from '@stores/output.ts';
 import { Tally } from '@twocaretcat/tally-ts';
 import { doContinueAnalyzingAfterPrompt, logElapsedTime } from './utils.ts';
 
