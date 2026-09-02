@@ -16,8 +16,10 @@ export async function updateLintPopover(
 	clientX: number,
 	clientY: number,
 ) {
+	const currentPopover = $lintPopover.get();
+
 	// If the user clicks on the same lint again or their click doesn't intersect a lint range, hide the popover
-	if (!lint || lint === $lintPopover.get().lint) {
+	if (!lint || (currentPopover.visible && lint === currentPopover.lint)) {
 		clearLintPopover();
 
 		return;
@@ -31,6 +33,7 @@ export async function updateLintPopover(
 	$lintPopover.set({
 		x: (clientX / clientWidth) * 100,
 		y: (clientY / clientHeight) * 100,
+		visible: true,
 		lint,
 	});
 }
@@ -38,14 +41,17 @@ export async function updateLintPopover(
 /**
  * Clears the lint popover state.
  *
- * Hides the popover and removes the active lint.
+ * Hides the popover without clearing its rendered lint content to prevent layout shifts.
  */
 export function clearLintPopover() {
 	console.debug('Clearing lint popover');
 
+	const { lint } = $lintPopover.get();
+
 	$lintPopover.set({
 		x: 50,
 		y: 50,
-		lint: null,
+		visible: false,
+		lint,
 	});
 }
