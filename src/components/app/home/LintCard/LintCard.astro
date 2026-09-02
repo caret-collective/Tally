@@ -27,7 +27,11 @@ const { id } = Astro.props;
 		white-space: nowrap;
 	}
 
-	.lint-card > header {
+	.lint-card > astro-island {
+		display: contents;
+	}
+
+	.lint-card header {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -46,7 +50,7 @@ const { id } = Astro.props;
 		transition-duration: var(--d-md);
 	}
 
-	.lint-card > section {
+	.lint-card section {
 		margin: var(--p-sm);
 	}
 
