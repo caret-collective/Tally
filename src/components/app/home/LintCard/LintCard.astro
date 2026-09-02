@@ -1,9 +1,5 @@
 ---
 import Card from '@components/ui/Card.astro';
-import Icon from '@components/ui/Icon.astro';
-import Strong from '@components/ui/Strong.astro';
-import { BookAlert } from '@lucide/astro';
-import { CLASS } from './lint-card.ts';
 
 /**
  * Props for a lint card component.
@@ -17,21 +13,12 @@ type Props = {
 const { id } = Astro.props;
 ---
 
-<Card role="group" {id}>
-	<header>
-		<Strong class="lint-kind">
-			<Icon icon={BookAlert} />
-			<span class={CLASS.lintKindText}></span>
-		</Strong>
-		<slot />
-	</header>
-	<section>
-		<div class={CLASS.lintMessage}></div>
-	</section>
+<Card class="lint-card" role="group" {id}>
+	<slot />
 </Card>
 
-<style>
-	.card[role='group'] {
+<style is:global>
+	.lint-card[role='group'] {
 		display: flex;
 		flex-direction: column;
 		padding: var(--p-sm);
@@ -40,29 +27,36 @@ const { id } = Astro.props;
 		white-space: nowrap;
 	}
 
-	header {
+	.lint-card > header {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		gap: var(--p-sm);
 	}
 
-	.lint-kind {
+	.lint-card .lint-kind {
 		display: inline-flex;
 		flex-direction: row;
 		align-items: center;
 		gap: var(--p-xs);
 		margin-inline-start: var(--p-sm);
 		font-family: var(--f-header);
+		font-weight: var(--f-bold);
 		color: var(--lint-card-color);
 		transition-duration: var(--d-md);
 	}
 
-	section {
+	.lint-card > section {
 		margin: var(--p-sm);
 	}
 
-	.lint-message {
+	.lint-card svg {
+		width: 1em;
+		height: 1em;
+		vertical-align: middle;
+	}
+
+	.lint-card .lint-message {
 		margin: 0;
 		font-size: var(--f-sm);
 
