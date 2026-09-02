@@ -1,5 +1,7 @@
 import * as stateStores from '@stores/state.ts';
 import * as optionStores from '@stores/options.ts';
+import { $lintPopover } from '@stores/lint-popover.ts';
+import { $outputCounts } from '@stores/output.ts';
 import { logger } from '@nanostores/logger';
 
 const allStores = (() => {
@@ -11,6 +13,8 @@ const allStores = (() => {
 		...$persistedLintingRegion,
 		...restOptionStores,
 		...stateStores,
+		$outputCounts,
+		$lintPopover,
 	};
 })();
 const originalDebugFn = console.debug;

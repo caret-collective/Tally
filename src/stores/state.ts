@@ -2,9 +2,7 @@ import { INPUT } from '@config/input.ts';
 import { persistentAtom } from '@nanostores/persistent';
 import { atom, map } from 'nanostores';
 import type { LintChunkMap, RangeIndices } from '@type/linting.ts';
-import type { Lint } from 'harper.js';
 import { $option } from './options.ts';
-export { $outputCounts } from './output.ts';
 
 /**
  * The input text saved to localStorage.
@@ -48,16 +46,4 @@ export const $lintChunkMap = map<LintChunkMap>({
 	},
 	trailing: undefined,
 	leading: undefined,
-});
-
-/**
- * State for the active lint popover.
- *
- * Holds the relative position of the position on the screen and associated lint item, or `null`
- * when no popover is visible.
- */
-export const $lintPopover = atom<{ x: number; y: number; lint: Lint | null }>({
-	x: 50,
-	y: 50,
-	lint: null,
 });
