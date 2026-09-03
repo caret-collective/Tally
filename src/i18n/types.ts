@@ -90,6 +90,9 @@ export type LocaleMessages = {
 			message: Capitalize<string>;
 		};
 	};
+	lint: {
+		close: WithLabel;
+	};
 	output: {
 		placeholder: Capitalize<string>;
 		map: OutputMap;

@@ -67,6 +67,11 @@ const messages: LocaleMessages = {
 				'Vous avez saisi une grande quantité de texte. Cela peut provoquer des problèmes de performance. Voulez-vous continuer ?\n\n(Vous pouvez désactiver cet avertissement dans les options.)',
 		},
 	},
+	lint: {
+		close: {
+			label: 'Fermer',
+		},
+	},
 	output: {
 		placeholder: '-',
 		map: {

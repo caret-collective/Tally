@@ -67,6 +67,11 @@ const messages: LocaleMessages = {
 				'Anda telah memasukkan sejumlah besar teks. Ini dapat menyebabkan masalah kinerja. Ingin melanjutkan?\n\n(Anda dapat menonaktifkan peringatan ini di opsi.)',
 		},
 	},
+	lint: {
+		close: {
+			label: 'Tutup',
+		},
+	},
 	output: {
 		placeholder: '-',
 		map: {

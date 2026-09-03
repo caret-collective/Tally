@@ -63,6 +63,11 @@ const messages: LocaleMessages = {
 				'您输入了大量文本，这可能会导致性能问题。是否要继续？\n\n（您可以在选项中禁用此警告。）',
 		},
 	},
+	lint: {
+		close: {
+			label: '关闭',
+		},
+	},
 	output: {
 		placeholder: '-',
 		map: {

@@ -63,6 +63,11 @@ const messages: LocaleMessages = {
 				'Sie haben eine große Menge Text eingegeben. Dies kann zu Leistungsproblemen führen. Möchten Sie fortfahren?\n\n(Sie können diese Warnung in den Optionen deaktivieren.)',
 		},
 	},
+	lint: {
+		close: {
+			label: 'Schließen',
+		},
+	},
 	output: {
 		placeholder: '-',
 		map: {

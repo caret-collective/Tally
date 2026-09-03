@@ -87,6 +87,11 @@ const messages: LocaleMessages = {
 				"You've entered a large amount of text. This may cause performance issues. Do you want to continue?\n\n(You can disable this warning in the options.)",
 		},
 	},
+	lint: {
+		close: {
+			label: 'Close',
+		},
+	},
 	output: {
 		// Placeholder text shown when no counts are available
 		placeholder: '-',
