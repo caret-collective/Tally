@@ -8,6 +8,7 @@ import { ID } from './lint-popover.ts';
 
 interface Props {
 	closeIcon?: JSX.Element;
+	closeLabel: string;
 	lintIcon?: JSX.Element;
 }
 
@@ -47,9 +48,9 @@ export default function LintPopover(props: Props) {
 		<LintCardContent lint={lint()} lintIcon={props.lintIcon}>
 			<div class="io-group">
 				<button
-					aria-label="Close"
+					aria-label={props.closeLabel}
 					class="button"
-					title="Close"
+					title={props.closeLabel}
 					type="button"
 					onClick={clearLintPopover}
 				>

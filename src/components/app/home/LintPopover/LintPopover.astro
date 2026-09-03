@@ -1,15 +1,18 @@
 ---
 import Icon from '@components/ui/Icon.astro';
+import { getLocale, getLocaleMessages } from '@i18n/index.ts';
 import { BookAlert, X } from '@lucide/astro';
 import LintCard from '../LintCard/LintCard.astro';
 import { ID } from './lint-popover.ts';
 import LintPopover from './LintPopover.tsx';
+
+const msg = getLocaleMessages(getLocale(Astro)).lint;
 ---
 
 <div id={ID.lintPopoverAnchor} aria-hidden="true"></div>
 <aside id={ID.lintPopover} popover role="dialog">
 	<LintCard id={ID.lintPopoverCard}>
-		<LintPopover client:load>
+		<LintPopover closeLabel={msg.close.label} client:load>
 			<Icon icon={BookAlert} slot="lint-icon" />
 			<Icon icon={X} slot="close-icon" />
 		</LintPopover>
